@@ -14,12 +14,10 @@ RUN cd $DIR && wget http://www2.mmm.ucar.edu/wrf/src/ARWpost_V3.tar.gz && \
     sed -i "s/-lnetcdf/-lnetcdff -lnetcdf/" src/Makefile && \
     ./compile
 
-RUN cd $DIR && wget ftp://cola.gmu.edu/grads/2.0/grads-2.0.2-src.tar.gz && \
-    tar zxvf grads-2.0.2-src.tar.gz && rm -rf grads-2.0.2-src.tar.gz && \
-    cd grads-2.0.2 && \
-    CPPFLAGS=-I$PREFIX/include LDFLAGS=-L$PREFIX/lib ./configure --with-hdf5 --with-hdf5-include=$PREFIX/include --with-hdf5-libdir=$PREFIX/lib --with-netcdf --with-netcdf-include=$PREFIX/include --with-netcdf-libdir=$PREFIX/lib --with-grib2 --with-grib2-include=$PREFIX/include --with-grib2-libdir=$PREFIX/lib --prefix=$PREFIX
+RUN cd $DIR && wget http://ufpr.dl.sourceforge.net/project/opengrads/grads2/2.0.2.oga.2/Linux/grads-2.0.2.oga.2-bundle-i686-pc-linux-gnu.tar.gz && \
+    tar zxvf grads-2.0.2.oga.2-bundle-i686-pc-linux-gnu.tar.gz && rm -rf grads-2.0.2.oga.2-bundle-i686-pc-linux-gnu.tar.gz
 
-ENV GRADS $DIR/grads-2.0.2.opa.2/Contents
+ENV GRADS $DIR/grads-2.0.2.oga.2/Contents
 ENV GRADDIR $GRADS/Resources/SupportData
 ENV GASCRP $GRADS/Resources/Scripts
 ENV PATH $GRADS:$GRADS/gribmap:$PATH
