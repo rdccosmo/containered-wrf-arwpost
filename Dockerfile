@@ -14,8 +14,8 @@ RUN cd $DIR && wget http://www2.mmm.ucar.edu/wrf/src/ARWpost_V3.tar.gz && \
     sed -i "s/-lnetcdf/-lnetcdff -lnetcdf/" src/Makefile && \
     ./compile
 
-RUN cd $DIR && wget http://ufpr.dl.sourceforge.net/project/opengrads/grads2/2.0.2.oga.2/Linux/grads-2.0.2.oga.2-bundle-i686-pc-linux-gnu.tar.gz && \
-    tar zxvf grads-2.0.2.oga.2-bundle-i686-pc-linux-gnu.tar.gz && rm -rf grads-2.0.2.oga.2-bundle-i686-pc-linux-gnu.tar.gz
+RUN cd $DIR && wget http://ufpr.dl.sourceforge.net/project/opengrads/grads2/2.0.2.oga.2/Linux/grads-2.0.2.oga.2-bundle-x86_64-unknown-linux-gnu.tar.gz && \
+    tar zxvf grads-2.0.2.oga.2-bundle-x86_64-unknown-linux-gnu.tar.gz && rm -rf grads-2.0.2.oga.2-bundle-x86_64-unknown-linux-gnu.tar.gz
 
 ENV GRADS $DIR/grads-2.0.2.oga.2/Contents
 ENV GRADDIR $GRADS/Resources/SupportData
